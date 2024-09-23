@@ -9,6 +9,8 @@ from .assign import (
     RecursiveBinMapper,
     VectorizingFuncBinMapper,
     VoronoiBinMapper,
+    ODLDBinMapper,
+    BenzeneBinMapper,
 )
 
 from .mab import map_mab, MABBinMapper
@@ -37,6 +39,8 @@ __all__ = [
     'RecursiveBinMapper',
     'VectorizingFuncBinMapper',
     'VoronoiBinMapper',
+    'ODLDBinMapper',
+    'BenzeneBinMapper',
     'map_mab',
     'map_binless',
     'MABBinMapper',

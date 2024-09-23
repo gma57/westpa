@@ -447,3 +447,37 @@ class RecursiveBinMapper(BinMapper):
             mapper.assign(coords, mask & rmasks[rindex], output)
 
         return output
+
+
+class ODLDBinMapper(BinMapper):
+    '''Bin on ODLD potential with target state bin at 1,1'''
+
+    def __init__(self):
+        super().__init__()
+        self.nbins = 2
+
+    def assign(self, coords, mask=None, output=None):
+        output = np.zeros(len(coords), dtype=np.uint16)
+        for icoord in range(len(coords)):
+            if coords[icoord][0] < 1.0 and coords[icoord][1] < 1.0:
+                output[icoord] = 0
+            else:
+                output[icoord] = 1
+        return output
+
+
+class BenzeneBinMapper(BinMapper):
+    '''Bin on ODLD potential with target state bin at 1,1'''
+
+    def __init__(self):
+        super().__init__()
+        self.nbins = 2
+
+    def assign(self, coords, mask=None, output=None):
+        output = np.zeros(len(coords), dtype=np.uint16)
+        for icoord in range(len(coords)):
+            if coords[icoord][0] > 20.0 and coords[icoord][1] > 6.0:
+                output[icoord] = 0
+            else:
+                output[icoord] = 1
+        return output
